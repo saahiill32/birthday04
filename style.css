@@ -1,0 +1,133 @@
+@font-face {
+  font-family: 'Wallington-Regular';
+  src: url('font/Wallington-Regular.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Wallington-Regular';
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Slideshow */
+.slideshow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+#timer {
+  display: flex;
+  gap: 15px;
+}
+
+.box {
+  background: #E2725B; /* fiery terracotta */
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+
+.box span {
+  font-size: 32px;
+  color: black;
+}
+
+.box small {
+  display: block;
+  color: black;
+  font-size: 12px;
+}
+
+/* Birthday Text */
+#birthdayText h2 {
+  font-size: 48px;
+  color: peachpuff;
+}
+
+#birthdayText p {
+  font-size: 22px;
+  color: peachpuff;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 60px;
+  background: radial-gradient(circle, #ff4d4d, #cc0000);
+  border-radius: 50%;
+  animation: fly 3s linear forwards;
+}
+
+@keyframes fly {
+  to {
+    transform: translateY(-120vh) translateX(var(--x));
+    opacity: 0;
+  }
+}
+
+/* Crackers */
+#crackers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: gold;
+  animation: spark 1s ease-out forwards;
+}
+
+@keyframes spark {
+  to {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
